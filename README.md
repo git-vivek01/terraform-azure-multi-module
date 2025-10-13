@@ -29,6 +29,7 @@ terraform-azure-multi-module/
 * Azure CLI
 * Azure Subscription with Contributor access
 * Optional: SSH key for Linux VM access
+* Optional: Azure Storage Account and Blob Container for remote Terraform state storage
 
 ## Terraform Commands
 

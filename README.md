@@ -1,41 +1,38 @@
-Terraform Azure Multi-Module Project
-1. Project Overview
-Deploys Azure infrastructure using Terraform modules.
+# Terraform Azure Multi-Module Project
 
-Modules included:
-1. Resource_group
-2. Virtual_network
-3. Subnet
-4. Network_security_group
-5. Public_ip
-6. Network_interface
-7. Nirtual_machine
+## Overview
 
-Modular design allows reuse across environments.
+This project deploys Azure infrastructure using Terraform with a modular design. It provisions Resource Groups, Virtual Network, Subnets, Network Security Groups, Network Interfaces, Public IPs, and Linux Virtual Machines. Modules are reusable for multiple environments.
 
-2. Directory Structure
+## Directory Structure
+
+```plaintext
 terraform-azure-multi-module/
-│
 ├── main.tf
 ├── variables.tf
 ├── provider.tf
 ├── terraform.tfvars
 ├── outputs.tf
-├── modules/
-│   ├── resource_group/
-│   ├── virtual_network/
-│   ├── subnet/
-│   ├── network_security_group/
-│   ├── public_ip/
-│   ├── network_interface/
-│   └── virtual_machine/
+└── modules/
+    ├── resource_group/
+    ├── virtual_network/
+    ├── subnet/
+    ├── network_security_group/
+    ├── public_ip/
+    ├── network_interface/
+    └── virtual_machine/
+```
 
-3. Prerequisites
-- Terraform >= 1.5
-- Azure CLI
-- Azure Subscription with Contributor access
+## Prerequisites
 
-4. Terraform Commands
+* Terraform >= 1.5
+* Azure CLI
+* Azure Subscription with Contributor access
+* Optional: SSH key for Linux VM access
+
+## Terraform Commands
+
+```bash
 # Initialize Terraform
 terraform init
 
@@ -51,26 +48,24 @@ terraform apply
 # Show outputs
 terraform output
 
-# Show specific sensitive output
+# Show sensitive output
 terraform output vm_admin_password
 
 # Destroy all resources
 terraform destroy
+```
 
-5. Outputs
-Output Name	Description
-vm_public_ip	Public IP of the Linux VM
-vm_admin_username	Admin username for VM
-vm_admin_password	Admin password for VM (sensitive)
+## Outputs
 
-6. Notes & Best Practices
+| Output Name         | Description                       |
+| ------------------- | --------------------------------- |
+| `vm_public_ip`      | Public IP of the Linux VM         |
+| `vm_admin_username` | Admin username for VM             |
+| `vm_admin_password` | Admin password for VM (sensitive) |
 
- * Put your secrets, Password and Tokens in <terraform.tfvars>. 
+## Notes & Best Practices
 
- * .gitignore includes .terraform/, *.tfstate, terraform.tfvars to protect secrets.
-
- * Use sensitive = true for passwords in outputs.
-
- * Consider Azure Key Vault for production secrets.
-
- * Modular design allows deploying multiple environments easily.
+* `.gitignore` should include `.terraform/`, `*.tfstate`, and `terraform.tfvars` to protect secrets.
+* Use `sensitive = true` for passwords and secrets in outputs.
+* Consider Azure Key Vault for production secret management.
+* Modular design allows easy deployment of multiple environments.

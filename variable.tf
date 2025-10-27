@@ -1,6 +1,7 @@
 variable "subscription_id" {}
 variable "client_id" {}
-variable "client_secrets" {
+# Sensitive variable for client secret
+variable "client_secret" {
     sensitive = true
 }
 variable "tenant_id" {}

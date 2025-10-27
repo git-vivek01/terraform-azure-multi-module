@@ -8,7 +8,7 @@ terraform {
     required_version = ">= 1.6.0"
 }
 
-
+# Service Principal Authentication
 provider "azurerm" {
     features {}
   
@@ -17,6 +17,7 @@ provider "azurerm" {
   client_secret   = var.client_secrets
   tenant_id       = var.tenant_id
 
+#backend configuration for remote state management
 }
 terraform {
   backend "azurerm" {

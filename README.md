@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project deploys Azure infrastructure using Terraform with a modular design. It provisions Resource Groups, Virtual Network, Subnets, Network Security Groups, Network Interfaces, Public IPs, and Linux Virtual Machines. Modules are reusable for multiple environments.Terraform state can be optionally stored remotely in an Azure Storage Account Blob Container for collaboration and security.
+This project deploys Azure infrastructure using Terraform with a modular design. It provisions Resource Groups, Virtual Network, Subnets, Network Security Groups, Network Interfaces, Public IPs, and Linux Virtual Machines. Modules are reusable for multiple environments.Terraform state File can be optionally stored remotely in an Azure Storage Account Blob Container for collaboration and security.
 
 ## Directory Structure
 
